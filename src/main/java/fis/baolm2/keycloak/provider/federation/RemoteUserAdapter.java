@@ -109,7 +109,8 @@ public class RemoteUserAdapter extends AbstractUserAdapterFederatedStorage {
             return roleMappings;
         }
 
-        for (String role : user.getRoles()) {
+        String[] roleArr = user.getRoles().split(",");
+        for (String role : roleArr) {
             RoleModel roleModel = realm.getRole(role);
             if (roleModel == null) {
                 roleModel = realm.addRole(role);

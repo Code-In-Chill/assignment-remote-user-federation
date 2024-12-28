@@ -12,12 +12,12 @@ public class RemoteUserEntity {
     private boolean enabled;
     private String createdAt;
     private Map<String, String> attributes;
-    private String[] roles;
+    private String roles;
 
     public RemoteUserEntity() {
     }
 
-    public RemoteUserEntity(String id, String firstName, String lastName, String userName, String email, boolean emailVerified, boolean enabled, String createdAt, Map<String, String> attributes, String[] roles) {
+    public RemoteUserEntity(String id, String firstName, String lastName, String userName, String email, boolean emailVerified, boolean enabled, String createdAt, Map<String, String> attributes, String roles) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -94,11 +94,11 @@ public class RemoteUserEntity {
         this.lastName = lastName;
     }
 
-    public String[] getRoles() {
+    public String getRoles() {
         return roles;
     }
 
-    public void setRoles(String[] roles) {
+    public void setRoles(String roles) {
         this.roles = roles;
     }
 

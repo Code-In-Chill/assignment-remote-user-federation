@@ -77,7 +77,7 @@ docker cp .\target\assignment-remote-user-federation.jar laughing_panini:/opt/ke
 **Response**
 ```json
 {
-  "valid": true
+  "isValid": true
 }
 ```
 ### `GET` /search

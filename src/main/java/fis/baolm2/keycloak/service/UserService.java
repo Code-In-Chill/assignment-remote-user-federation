@@ -116,7 +116,7 @@ public class UserService {
 
     private SimpleHttp.Response doQuery(String url, Map<String, String> params) throws IOException {
         SimpleHttp simpleHttp = SimpleHttp.doGet(url, session).header("User-Agent", UA);
-        if (!"".equals(authorization_username) && authorization_username != null) {
+        if (authorization_username != null && !authorization_username.isEmpty()) {
             simpleHttp.authBasic(authorization_username, authorization_password);
         }
         for (Map.Entry<String, String> param : params.entrySet()) {

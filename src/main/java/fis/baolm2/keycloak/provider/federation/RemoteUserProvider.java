@@ -13,6 +13,7 @@ import org.keycloak.storage.StorageId;
 import org.keycloak.storage.UserStorageProvider;
 import org.keycloak.storage.user.UserLookupProvider;
 import org.keycloak.storage.user.UserQueryProvider;
+import org.keycloak.storage.user.UserRegistrationProvider;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -34,6 +35,7 @@ import static fis.baolm2.keycloak.constant.RemoteUserStorageProviderConstants.DE
 public class RemoteUserProvider implements UserStorageProvider,
         UserLookupProvider,
         UserQueryProvider,
+        UserRegistrationProvider,
         CredentialInputValidator {
 
     private static final Logger logger = Logger.getLogger(RemoteUserProvider.class);
@@ -118,7 +120,6 @@ public class RemoteUserProvider implements UserStorageProvider,
 
     @Override
     public void close() {
-        log("closing provider");
     }
 
     @Override
@@ -289,5 +290,15 @@ public class RemoteUserProvider implements UserStorageProvider,
         if (Boolean.parseBoolean(model.get(DEBUG_ENABLED))) {
             logger.infof(message, params);
         }
+    }
+
+    @Override
+    public UserModel addUser(RealmModel realm, String username) {
+        return null;
+    }
+
+    @Override
+    public boolean removeUser(RealmModel realm, UserModel user) {
+        return false;
     }
 }

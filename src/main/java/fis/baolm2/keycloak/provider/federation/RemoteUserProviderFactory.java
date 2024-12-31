@@ -62,33 +62,8 @@ public class RemoteUserProviderFactory implements UserStorageProviderFactory<Rem
     }
 
     @Override
-    public void init(Config.Scope config) {
-        UserStorageProviderFactory.super.init(config);
-    }
-
-    @Override
-    public void postInit(KeycloakSessionFactory factory) {
-        UserStorageProviderFactory.super.postInit(factory);
-    }
-
-    @Override
-    public void close() {
-        UserStorageProviderFactory.super.close();
-    }
-
-    @Override
-    public String getHelpText() {
-        return UserStorageProviderFactory.super.getHelpText();
-    }
-
-    @Override
     public List<ProviderConfigProperty> getConfigProperties() {
         return configMetadata;
-    }
-
-    @Override
-    public <C> C getConfig() {
-        return UserStorageProviderFactory.super.getConfig();
     }
 
     @Override
@@ -104,15 +79,5 @@ public class RemoteUserProviderFactory implements UserStorageProviderFactory<Rem
         if (!valid) {
             throw new ComponentValidationException("Unable to validate configuration. Err: " + comment);
         }
-    }
-
-    @Override
-    public void onCreate(KeycloakSession session, RealmModel realm, ComponentModel model) {
-
-    }
-
-    @Override
-    public void onUpdate(KeycloakSession session, RealmModel realm, ComponentModel oldModel, ComponentModel newModel) {
-
     }
 }

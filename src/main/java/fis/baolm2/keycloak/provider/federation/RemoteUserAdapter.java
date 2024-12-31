@@ -98,7 +98,7 @@ public class RemoteUserAdapter extends AbstractUserAdapterFederatedStorage {
     @Override
     public String getFirstAttribute(String name) {
         List<String> list = getAttributes().getOrDefault(name, List.of());
-        return list.isEmpty() ? null : list.get(0);
+        return list.isEmpty() ? null : list.getFirst();
     }
 
     @Override
@@ -116,8 +116,8 @@ public class RemoteUserAdapter extends AbstractUserAdapterFederatedStorage {
                 roleModel = realm.addRole(role);
                 log("Adding role %s", role);
             }
-            //log.infof("Granting role %s to user %s during user import from Remote", role, username);
-            //this.grantRole(roleModel);
+//            log("Granting role %s to user %s during user import from Remote", role, username);
+//            this.grantRole(roleModel);
             roleMappings = Stream.concat(roleMappings, Stream.of(roleModel));
         }
         return roleMappings;
